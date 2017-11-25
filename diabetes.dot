@@ -79,7 +79,7 @@ node [shape=box] ;
 36 -> 38 ;
 39 [label="gini = 0.0\nsamples = 5\nvalue = [5, 0]"] ;
 35 -> 39 ;
-40 [label="Insulin <= 661.5\ngini = 0.233\nsamples = 67\nvalue = [9, 58]"] ;
+40 [label="DiabetesPedigreeFunction <= 2.233\ngini = 0.233\nsamples = 67\nvalue = [9, 58]"] ;
 34 -> 40 ;
 41 [label="DiabetesPedigreeFunction <= 0.343\ngini = 0.213\nsamples = 66\nvalue = [8, 58]"] ;
 40 -> 41 ;

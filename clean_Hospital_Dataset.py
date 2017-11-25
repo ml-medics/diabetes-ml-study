@@ -70,16 +70,17 @@ for i in attributes:
 df.drop(skewedEntries, inplace = True, axis =1)
 
 race_dict = {'?':5, 'AfricanAmerican':1, 'Asian':4, 'Other':5, 'Caucasian':3, 'Hispanic':2}
+df['race'] = df['race'].map(race_dict)
 
-df.loc[df['race'] =="AfricanAmerican", 'race'] = race_dict.get("AfricanAmerican")
-df.loc[df['race'] =="Asian", 'race'] = race_dict.get("Asian")
-df.loc[df['race'] =="Caucasian", 'race'] = race_dict.get("Caucasian")
-df.loc[df['race'] =="Hispanic", 'race'] = race_dict.get("Hispanic")
-df.loc[df['race'] =="?", 'race'] = race_dict.get("Other")
-df.loc[df['race'] =="Other", 'race'] = race_dict.get("Other")
+# df.loc[df['race'] =="AfricanAmerican", 'race'] = race_dict.get("AfricanAmerican")
+# df.loc[df['race'] =="Asian", 'race'] = race_dict.get("Asian")
+# df.loc[df['race'] =="Caucasian", 'race'] = race_dict.get("Caucasian")
+# df.loc[df['race'] =="Hispanic", 'race'] = race_dict.get("Hispanic")
+# df.loc[df['race'] =="?", 'race'] = race_dict.get("Other")
+# df.loc[df['race'] =="Other", 'race'] = race_dict.get("Other")
 
 df.to_csv('diabetic_data_clean.csv')
-#df = pd.read_csv('diabetic_data_clean.csv')
+df = pd.read_csv('diabetic_data_clean.csv')
 pima = pd.read_csv('dataset/diabetes.csv')
 cl = classification.classification(pima, "PIMA")
-classification.classification(df, "HOSPITAL_DATASET")
+#classification.classification(df, "HOSPITAL_DATASET")
