@@ -4,7 +4,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.naive_bayes import GaussianNB, MultinomialNB
 from sklearn.neural_network import MLPClassifier
-
 import pydot
 import pandas as pd
 import numpy as np
