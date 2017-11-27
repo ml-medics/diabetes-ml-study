@@ -1,0 +1,1020 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Hospital Dataset Analysis}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{data-mining-on-hospital-dataset}{%
+\subsubsection{Data Mining on Hospital
+Dataset}\label{data-mining-on-hospital-dataset}}
+
+This notebook analyses hospital records of diabetic patients and
+predicts the possibilty of readmittance.
+
+    \hypertarget{imports}{%
+\subsubsection{Imports}\label{imports}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}86}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{accuracy\PYZus{}score}\PY{p}{,} \PY{n}{confusion\PYZus{}matrix}\PY{p}{,} \PY{n}{classification\PYZus{}report}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{naive\PYZus{}bayes} \PY{k}{import} \PY{n}{GaussianNB}\PY{p}{,} \PY{n}{MultinomialNB}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neural\PYZus{}network} \PY{k}{import} \PY{n}{MLPClassifier}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{tree} \PY{k}{import} \PY{n}{DecisionTreeClassifier}\PY{p}{,} \PY{n}{export\PYZus{}graphviz}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{RandomForestClassifier}\PY{p}{,} \PY{n}{RandomForestRegressor}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LogisticRegression}\PY{p}{,} \PY{n}{LinearRegression}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{naive\PYZus{}bayes} \PY{k}{import} \PY{n}{GaussianNB}\PY{p}{,} \PY{n}{MultinomialNB}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neural\PYZus{}network} \PY{k}{import} \PY{n}{MLPClassifier}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{preprocessing} \PY{k}{import} \PY{n}{Imputer}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{roc\PYZus{}curve}
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+         \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{Markdown}\PY{p}{,} \PY{n}{display}
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{patches} \PY{k}{as} \PY{n+nn}{mpatches}
+         \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{HTML}
+         \PY{k+kn}{from} \PY{n+nn}{operator} \PY{k}{import} \PY{n}{itemgetter}
+         
+         
+         \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+         
+         
+         \PY{c+c1}{\PYZsh{} pd.options.mode.chained\PYZus{}assignment = None }
+\end{Verbatim}
+
+
+    \hypertarget{helper-functions}{%
+\subsubsection{Helper functions}\label{helper-functions}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}87}]:} \PY{k}{def} \PY{n+nf}{print\PYZus{}bold}\PY{p}{(}\PY{n}{text}\PY{p}{)}\PY{p}{:}
+             \PY{n}{display}\PY{p}{(}\PY{n}{Markdown}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{**}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{**}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{text}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             
+         \PY{k}{def} \PY{n+nf}{print\PYZus{}color}\PY{p}{(}\PY{n}{text}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{red}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+             \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}text style=color:}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZgt{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZlt{}/text\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{color}\PY{p}{,} \PY{n}{text}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+         
+         
+         \PY{k}{def} \PY{n+nf}{display\PYZus{}confusion\PYZus{}matrix}\PY{p}{(}\PY{n}{target\PYZus{}test}\PY{p}{,} \PY{n}{target\PYZus{}predict}\PY{p}{)}\PY{p}{:}
+             \PY{n}{print\PYZus{}bold}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Confusion Matrix}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{y\PYZus{}actu} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{target\PYZus{}test}\PY{p}{,} \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Actual}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{y\PYZus{}pred} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{target\PYZus{}predict}\PY{p}{,} \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Predicted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{pd}\PY{o}{.}\PY{n}{crosstab}\PY{p}{(}\PY{n}{y\PYZus{}actu}\PY{p}{,} \PY{n}{y\PYZus{}pred}\PY{p}{)}\PY{p}{)}
+             
+         \PY{c+c1}{\PYZsh{} Basic graph plotting utility}
+         \PY{k}{def} \PY{n+nf}{plot\PYZus{}roc\PYZus{}curve}\PY{p}{(}\PY{n}{confusion\PYZus{}matrix\PYZus{}list}\PY{p}{,} \PY{n}{models}\PY{p}{,} \PY{n}{x\PYZus{}label}\PY{p}{,} \PY{n}{y\PYZus{}label}\PY{p}{,} \PY{n}{model\PYZus{}names}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+             
+             \PY{n}{tpr\PYZus{}fpr\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             
+             \PY{k}{for} \PY{n}{idx}\PY{p}{,} \PY{n}{cm} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{confusion\PYZus{}matrix\PYZus{}list}\PY{p}{)}\PY{p}{:}
+             
+                 \PY{n}{tp} \PY{o}{=} \PY{n}{cm}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}
+                 \PY{n}{tn} \PY{o}{=} \PY{n}{cm}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}
+                 \PY{n}{fp} \PY{o}{=} \PY{n}{cm}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}
+                 \PY{n}{fn} \PY{o}{=} \PY{n}{cm}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}
+                 
+                 
+                 \PY{n}{tpr} \PY{o}{=} \PY{n}{tp} \PY{o}{/} \PY{p}{(}\PY{n}{tp} \PY{o}{+} \PY{n}{fn}\PY{p}{)}
+                 \PY{n}{fpr} \PY{o}{=} \PY{n}{fp} \PY{o}{/} \PY{p}{(}\PY{n}{fp} \PY{o}{+} \PY{n}{tn}\PY{p}{)}
+                 
+                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{models}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{TPR:}\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{tpr}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{FPR:}\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{fpr}\PY{p}{)}\PY{p}{)}
+             
+                 \PY{n}{tpr\PYZus{}fpr\PYZus{}list}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{(}\PY{n+nb}{round}\PY{p}{(}\PY{n}{fpr}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{,} \PY{n+nb}{round}\PY{p}{(}\PY{n}{tpr} \PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                 
+             \PY{n}{tpr\PYZus{}fpr\PYZus{}list}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{n}{key}\PY{o}{=}\PY{n}{itemgetter}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}    
+             \PY{n}{handles} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             
+             \PY{k}{for} \PY{n}{model\PYZus{}name}\PY{p}{,} \PY{n}{model}\PY{p}{,} \PY{n}{color} \PY{o+ow}{in} \PY{n}{models}\PY{p}{:}
+                 \PY{n}{patch} \PY{o}{=} \PY{n}{mpatches}\PY{o}{.}\PY{n}{Patch}\PY{p}{(}\PY{n}{color}\PY{o}{=}\PY{n}{color}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{n}{model\PYZus{}name}\PY{p}{)}
+                 \PY{n}{handles}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{patch}\PY{p}{)}
+                 
+             \PY{n}{fpr\PYZus{}list}\PY{p}{,} \PY{n}{tpr\PYZus{}list} \PY{o}{=} \PY{n+nb}{zip}\PY{p}{(}\PY{o}{*}\PY{n}{tpr\PYZus{}fpr\PYZus{}list}\PY{p}{)}
+             
+             \PY{n}{fig}\PY{p}{,} \PY{n}{ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{fpr\PYZus{}list}\PY{p}{,} \PY{n}{tpr\PYZus{}list}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bs\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{n}{x\PYZus{}label}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{n}{y\PYZus{}label}\PY{p}{)}
+         
+             \PY{k}{for} \PY{n}{idx}\PY{p}{,} \PY{n}{\PYZus{}}   \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{tpr\PYZus{}list}\PY{p}{)}\PY{p}{:}
+                 
+                 \PY{n}{tpr} \PY{o}{=} \PY{n}{tpr\PYZus{}list}\PY{p}{[}\PY{n}{idx}\PY{p}{]}
+                 \PY{n}{fpr} \PY{o}{=} \PY{n}{fpr\PYZus{}list}\PY{p}{[}\PY{n}{idx}\PY{p}{]}
+         \PY{c+c1}{\PYZsh{}         plt.plot([fpr, fpr], [0, tpr], \PYZsq{}ks\PYZhy{}\PYZsq{}) \PYZsh{} vertical}
+         \PY{c+c1}{\PYZsh{}         plt.plot([0, fpr], [tpr, tpr], \PYZsq{}ks\PYZhy{}\PYZsq{}) \PYZsh{} horizontal}
+                 \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{n}{fpr}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{tpr}\PY{p}{]}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}  \PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{models}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{handles}\PY{o}{=}\PY{n}{handles}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{read-dataset}{%
+\subsubsection{Read dataset}\label{read-dataset}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}88}]:} \PY{n}{DATASET\PYZus{}NAME} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{datasets/diabetes\PYZus{}hospital.csv}\PY{l+s+s1}{\PYZsq{}}
+         \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{DATASET\PYZus{}NAME}\PY{p}{)}
+         \PY{n}{df}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}88}]:}    encounter\_id  patient\_nbr             race  gender      age weight  \textbackslash{}
+         0       2278392      8222157        Caucasian  Female   [0-10)      ?   
+         1        149190     55629189        Caucasian  Female  [10-20)      ?   
+         2         64410     86047875  AfricanAmerican  Female  [20-30)      ?   
+         3        500364     82442376        Caucasian    Male  [30-40)      ?   
+         4         16680     42519267        Caucasian    Male  [40-50)      ?   
+         
+            admission\_type\_id  discharge\_disposition\_id  admission\_source\_id  \textbackslash{}
+         0                  6                        25                    1   
+         1                  1                         1                    7   
+         2                  1                         1                    7   
+         3                  1                         1                    7   
+         4                  1                         1                    7   
+         
+            time\_in\_hospital    {\ldots}     citoglipton insulin  glyburide-metformin  \textbackslash{}
+         0                 1    {\ldots}              No      No                   No   
+         1                 3    {\ldots}              No      Up                   No   
+         2                 2    {\ldots}              No      No                   No   
+         3                 2    {\ldots}              No      Up                   No   
+         4                 1    {\ldots}              No  Steady                   No   
+         
+            glipizide-metformin  glimepiride-pioglitazone  metformin-rosiglitazone  \textbackslash{}
+         0                   No                        No                       No   
+         1                   No                        No                       No   
+         2                   No                        No                       No   
+         3                   No                        No                       No   
+         4                   No                        No                       No   
+         
+            metformin-pioglitazone  change diabetesMed readmitted  
+         0                      No      No          No         NO  
+         1                      No      Ch         Yes        >30  
+         2                      No      No         Yes         NO  
+         3                      No      Ch         Yes         NO  
+         4                      No      Ch         Yes         NO  
+         
+         [5 rows x 50 columns]
+\end{Verbatim}
+            
+    \hypertarget{find-out-missing-values-in-the-dataset}{%
+\subsubsection{Find out missing values in the
+dataset}\label{find-out-missing-values-in-the-dataset}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}89}]:} \PY{n}{attributes} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{race}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gender}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{age}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{medical\PYZus{}specialty}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{change}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{diabetesMed}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{readmitted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         \PY{k}{for} \PY{n}{attr} \PY{o+ow}{in} \PY{n}{attributes}\PY{p}{:}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{attr}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n+nb}{sum}\PY{p}{(}\PY{n}{df}\PY{p}{[}\PY{n}{attr}\PY{p}{]} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{?}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+race :  2273
+gender :  0
+age :  0
+medical\_specialty :  49949
+change :  0
+diabetesMed :  0
+readmitted :  0
+
+    \end{Verbatim}
+
+    \hypertarget{show-statistics-of-the-dataset}{%
+\subsubsection{Show statistics of the
+dataset}\label{show-statistics-of-the-dataset}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}90}]:} \PY{n}{df}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}90}]:}                              count          mean           std      min  \textbackslash{}
+         encounter\_id              101766.0  1.652016e+08  1.026403e+08  12522.0   
+         patient\_nbr               101766.0  5.433040e+07  3.869636e+07    135.0   
+         admission\_type\_id         101766.0  2.024006e+00  1.445403e+00      1.0   
+         discharge\_disposition\_id  101766.0  3.715642e+00  5.280166e+00      1.0   
+         admission\_source\_id       101766.0  5.754437e+00  4.064081e+00      1.0   
+         time\_in\_hospital          101766.0  4.395987e+00  2.985108e+00      1.0   
+         num\_lab\_procedures        101766.0  4.309564e+01  1.967436e+01      1.0   
+         num\_procedures            101766.0  1.339730e+00  1.705807e+00      0.0   
+         num\_medications           101766.0  1.602184e+01  8.127566e+00      1.0   
+         number\_outpatient         101766.0  3.693572e-01  1.267265e+00      0.0   
+         number\_emergency          101766.0  1.978362e-01  9.304723e-01      0.0   
+         number\_inpatient          101766.0  6.355659e-01  1.262863e+00      0.0   
+         number\_diagnoses          101766.0  7.422607e+00  1.933600e+00      1.0   
+         
+                                          25\%          50\%           75\%          max  
+         encounter\_id              84961194.0  152388987.0  2.302709e+08  443867222.0  
+         patient\_nbr               23413221.0   45505143.0  8.754595e+07  189502619.0  
+         admission\_type\_id                1.0          1.0  3.000000e+00          8.0  
+         discharge\_disposition\_id         1.0          1.0  4.000000e+00         28.0  
+         admission\_source\_id              1.0          7.0  7.000000e+00         25.0  
+         time\_in\_hospital                 2.0          4.0  6.000000e+00         14.0  
+         num\_lab\_procedures              31.0         44.0  5.700000e+01        132.0  
+         num\_procedures                   0.0          1.0  2.000000e+00          6.0  
+         num\_medications                 10.0         15.0  2.000000e+01         81.0  
+         number\_outpatient                0.0          0.0  0.000000e+00         42.0  
+         number\_emergency                 0.0          0.0  0.000000e+00         76.0  
+         number\_inpatient                 0.0          0.0  1.000000e+00         21.0  
+         number\_diagnoses                 6.0          8.0  9.000000e+00         16.0  
+\end{Verbatim}
+            
+    \hypertarget{drop-columns}{%
+\subsubsection{Drop columns}\label{drop-columns}}
+
+Drop attributes like IDs and other irrelevant attributes
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}91}]:} \PY{n}{bad\PYZus{}features} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{encounter\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{patient\PYZus{}nbr}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{weight}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{payer\PYZus{}code}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{admission\PYZus{}type\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
+                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{discharge\PYZus{}disposition\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{admission\PYZus{}source\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{number\PYZus{}outpatient}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{number\PYZus{}emergency}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
+                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{number\PYZus{}inpatient}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{diag\PYZus{}1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{diag\PYZus{}2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{diag\PYZus{}3}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{number\PYZus{}diagnoses}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{examide}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
+                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{citoglipton}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{glyburide\PYZhy{}metformin}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{glipizide\PYZhy{}metformin}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{glimepiride\PYZhy{}pioglitazone}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
+                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{metformin\PYZhy{}rosiglitazone}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{metformin\PYZhy{}pioglitazone}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}glu\PYZus{}serum}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{A1Cresult}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
+                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{metformin}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{repaglinide}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{nateglinide}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{chlorpropamide}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{glimepiride}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{acetohexamide}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
+                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{glipizide}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{glyburide}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tolbutamide}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pioglitazone}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rosiglitazone}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{acarbose}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
+                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{miglitol}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{troglitazone}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tolazamide}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{examide}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{citoglipton}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{df}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{bad\PYZus{}features}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{axis} \PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{replace-missing-values}{%
+\subsubsection{Replace missing values}\label{replace-missing-values}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}92}]:} \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{medical\PYZus{}specialty}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{medical\PYZus{}specialty}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{?}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{General}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{race}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{race}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{?}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Other}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{readmitted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{readmitted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZlt{}30}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{YES}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{readmitted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{readmitted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZgt{}30}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{YES}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{df}\PY{o}{.}\PY{n}{transpose}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}92}]:}                                       0          1                2       \textbackslash{}
+         race                               Caucasian  Caucasian  AfricanAmerican   
+         gender                                Female     Female           Female   
+         age                                   [0-10)    [10-20)          [20-30)   
+         time\_in\_hospital                           1          3                2   
+         medical\_specialty   Pediatrics-Endocrinology    General          General   
+         num\_lab\_procedures                        41         59               11   
+         num\_procedures                             0          0                5   
+         num\_medications                            1         18               13   
+         insulin                                   No         Up               No   
+         change                                    No         Ch               No   
+         diabetesMed                               No        Yes              Yes   
+         readmitted                                NO        YES               NO   
+         
+                                3          4          5          6          7       \textbackslash{}
+         race                Caucasian  Caucasian  Caucasian  Caucasian  Caucasian   
+         gender                   Male       Male       Male       Male       Male   
+         age                   [30-40)    [40-50)    [50-60)    [60-70)    [70-80)   
+         time\_in\_hospital            2          1          3          4          5   
+         medical\_specialty     General    General    General    General    General   
+         num\_lab\_procedures         44         51         31         70         73   
+         num\_procedures              1          0          6          1          0   
+         num\_medications            16          8         16         21         12   
+         insulin                    Up     Steady     Steady     Steady         No   
+         change                     Ch         Ch         No         Ch         No   
+         diabetesMed               Yes        Yes        Yes        Yes        Yes   
+         readmitted                 NO         NO        YES         NO        YES   
+         
+                                8                 9         {\ldots}       101756  \textbackslash{}
+         race                Caucasian         Caucasian    {\ldots}        Other   
+         gender                 Female            Female    {\ldots}       Female   
+         age                   [80-90)          [90-100)    {\ldots}      [60-70)   
+         time\_in\_hospital           13                12    {\ldots}            2   
+         medical\_specialty     General  InternalMedicine    {\ldots}      General   
+         num\_lab\_procedures         68                33    {\ldots}           46   
+         num\_procedures              2                 3    {\ldots}            6   
+         num\_medications            28                18    {\ldots}           17   
+         insulin                Steady            Steady    {\ldots}       Steady   
+         change                     Ch                Ch    {\ldots}           No   
+         diabetesMed               Yes               Yes    {\ldots}          Yes   
+         readmitted                 NO                NO    {\ldots}          YES   
+         
+                                101757     101758     101759           101760  \textbackslash{}
+         race                Caucasian  Caucasian  Caucasian  AfricanAmerican   
+         gender                 Female     Female       Male           Female   
+         age                   [70-80)    [80-90)    [80-90)          [60-70)   
+         time\_in\_hospital            5          5          1                6   
+         medical\_specialty     General    General    General          General   
+         num\_lab\_procedures         21         76          1               45   
+         num\_procedures              1          1          0                1   
+         num\_medications            16         22         15               25   
+         insulin                Steady         Up         Up             Down   
+         change                     No         Ch         Ch               Ch   
+         diabetesMed               Yes        Yes        Yes              Yes   
+         readmitted                 NO         NO         NO              YES   
+         
+                                      101761           101762     101763  \textbackslash{}
+         race                AfricanAmerican  AfricanAmerican  Caucasian   
+         gender                         Male           Female       Male   
+         age                         [70-80)          [80-90)    [70-80)   
+         time\_in\_hospital                  3                5          1   
+         medical\_specialty           General          General    General   
+         num\_lab\_procedures               51               33         53   
+         num\_procedures                    0                3          0   
+         num\_medications                  16               18          9   
+         insulin                        Down           Steady       Down   
+         change                           Ch               No         Ch   
+         diabetesMed                     Yes              Yes        Yes   
+         readmitted                      YES               NO         NO   
+         
+                                      101764     101765  
+         race                      Caucasian  Caucasian  
+         gender                       Female       Male  
+         age                         [80-90)    [70-80)  
+         time\_in\_hospital                 10          6  
+         medical\_specialty   Surgery-General    General  
+         num\_lab\_procedures               45         13  
+         num\_procedures                    2          3  
+         num\_medications                  21          3  
+         insulin                          Up         No  
+         change                           Ch         No  
+         diabetesMed                     Yes         No  
+         readmitted                       NO         NO  
+         
+         [12 rows x 101766 columns]
+\end{Verbatim}
+            
+    \hypertarget{categorical-to-numeric}{%
+\subsubsection{Categorical to numeric}\label{categorical-to-numeric}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}93}]:} \PY{n}{dummy\PYZus{}columns} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{race}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gender}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{age}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{insulin}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{medical\PYZus{}specialty}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{df\PYZus{}dummies} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{get\PYZus{}dummies}\PY{p}{(}\PY{n}{df}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{n}{dummy\PYZus{}columns}\PY{p}{)}
+         
+         \PY{n}{df\PYZus{}dummies}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{readmitted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Categorical}\PY{p}{(}\PY{n}{df\PYZus{}dummies}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{readmitted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{codes}
+         \PY{n}{df\PYZus{}target} \PY{o}{=} \PY{n}{df\PYZus{}dummies}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{readmitted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         
+         
+         \PY{c+c1}{\PYZsh{} Drop the target variable from dataframe}
+         \PY{n}{df\PYZus{}dummies}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{readmitted}\PY{l+s+s1}{\PYZsq{}} \PY{p}{,} \PY{n}{inplace} \PY{o}{=} \PY{k+kc}{True}\PY{p}{,} \PY{n}{axis} \PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+         \PY{n}{df\PYZus{}attr} \PY{o}{=} \PY{n}{df\PYZus{}dummies}
+         
+         \PY{c+c1}{\PYZsh{} Concvert binary categorical values to numeric}
+         \PY{n}{df\PYZus{}attr}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{diabetesMed}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Categorical}\PY{p}{(}\PY{n}{df\PYZus{}attr}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{diabetesMed}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{codes}
+         \PY{n}{df\PYZus{}attr}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{change}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Categorical}\PY{p}{(}\PY{n}{df\PYZus{}attr}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{change}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{codes}
+         
+         \PY{n}{df\PYZus{}attr}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}93}]:}    time\_in\_hospital  num\_lab\_procedures  num\_procedures  num\_medications  \textbackslash{}
+         0                 1                  41               0                1   
+         1                 3                  59               0               18   
+         2                 2                  11               5               13   
+         3                 2                  44               1               16   
+         4                 1                  51               0                8   
+         
+            change  diabetesMed  race\_AfricanAmerican  race\_Asian  race\_Caucasian  \textbackslash{}
+         0       1            0                     0           0               1   
+         1       0            1                     0           0               1   
+         2       1            1                     1           0               0   
+         3       0            1                     0           0               1   
+         4       0            1                     0           0               1   
+         
+            race\_Hispanic            {\ldots}              \textbackslash{}
+         0              0            {\ldots}               
+         1              0            {\ldots}               
+         2              0            {\ldots}               
+         3              0            {\ldots}               
+         4              0            {\ldots}               
+         
+            medical\_specialty\_Surgery-General  medical\_specialty\_Surgery-Maxillofacial  \textbackslash{}
+         0                                  0                                        0   
+         1                                  0                                        0   
+         2                                  0                                        0   
+         3                                  0                                        0   
+         4                                  0                                        0   
+         
+            medical\_specialty\_Surgery-Neuro  medical\_specialty\_Surgery-Pediatric  \textbackslash{}
+         0                                0                                    0   
+         1                                0                                    0   
+         2                                0                                    0   
+         3                                0                                    0   
+         4                                0                                    0   
+         
+            medical\_specialty\_Surgery-Plastic  \textbackslash{}
+         0                                  0   
+         1                                  0   
+         2                                  0   
+         3                                  0   
+         4                                  0   
+         
+            medical\_specialty\_Surgery-PlasticwithinHeadandNeck  \textbackslash{}
+         0                                                  0    
+         1                                                  0    
+         2                                                  0    
+         3                                                  0    
+         4                                                  0    
+         
+            medical\_specialty\_Surgery-Thoracic  medical\_specialty\_Surgery-Vascular  \textbackslash{}
+         0                                   0                                   0   
+         1                                   0                                   0   
+         2                                   0                                   0   
+         3                                   0                                   0   
+         4                                   0                                   0   
+         
+            medical\_specialty\_SurgicalSpecialty  medical\_specialty\_Urology  
+         0                                    0                          0  
+         1                                    0                          0  
+         2                                    0                          0  
+         3                                    0                          0  
+         4                                    0                          0  
+         
+         [5 rows x 101 columns]
+\end{Verbatim}
+            
+    \hypertarget{split-attribues-for-training-and-testing}{%
+\subsubsection{Split attribues for training and
+testing}\label{split-attribues-for-training-and-testing}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}94}]:} \PY{n}{attr\PYZus{}train}\PY{p}{,} \PY{n}{attr\PYZus{}test}\PY{p}{,} \PY{n}{target\PYZus{}train}\PY{p}{,} \PY{n}{target\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{df\PYZus{}attr} \PY{p}{,} \PY{n}{df\PYZus{}target}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{models}{%
+\subsubsection{Models}\label{models}}
+
+Fit various models and check results
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}95}]:} \PY{n}{models} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Decision Tree}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{DecisionTreeClassifier}\PY{p}{(}\PY{n}{max\PYZus{}depth}\PY{o}{=} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{red}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} 
+                   \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Logistic Regression}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{LogisticRegression}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{green}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} 
+                   \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Random Forest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{yellow}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,}
+                   \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Naive Bayes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{GaussianNB}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{magenta}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,}
+                   \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Neural Network}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{MLPClassifier}\PY{p}{(}\PY{n}{hidden\PYZus{}layer\PYZus{}sizes} \PY{o}{=} \PY{l+m+mi}{3}\PY{p}{,}  \PY{n}{max\PYZus{}iter}\PY{o}{=} \PY{l+m+mi}{500}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{blue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]}
+                  
+         
+         \PY{n}{predicted\PYZus{}results} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n}{time\PYZus{}elapsed} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{model\PYZus{}names}\PY{p}{,} \PY{n}{model}\PY{p}{,} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n}{models}\PY{p}{:}
+             
+             \PY{n}{start} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+             
+             \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{attr\PYZus{}train}\PY{p}{,} \PY{n}{target\PYZus{}train}\PY{p}{)}
+             \PY{n}{target\PYZus{}predict} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{attr\PYZus{}test}\PY{p}{)}
+             
+             \PY{n}{end} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
+             
+             \PY{n}{time\PYZus{}elapsed}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{end} \PY{o}{\PYZhy{}} \PY{n}{start}\PY{p}{)}
+             \PY{n}{predicted\PYZus{}results}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{target\PYZus{}predict}\PY{p}{)}
+\end{Verbatim}
+
+
+    \hypertarget{results}{%
+\subsubsection{Results}\label{results}}
+
+Show the results of various models
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}96}]:} \PY{n}{fpr\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n}{tpr\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n}{confusion\PYZus{}matrix\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         
+         \PY{k}{for} \PY{n}{idx}\PY{p}{,} \PY{p}{(}\PY{n}{model\PYZus{}name}\PY{p}{,} \PY{n}{model}\PY{p}{,} \PY{n}{\PYZus{}}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{models}\PY{p}{)}\PY{p}{:}
+             \PY{n}{print\PYZus{}bold}\PY{p}{(}\PY{n}{model\PYZus{}name}\PY{p}{)}
+             \PY{n}{print\PYZus{}bold}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy Score}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{target\PYZus{}test}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{predicted\PYZus{}results}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{end}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             
+             \PY{n}{print\PYZus{}bold}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time taken}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n+nb}{round}\PY{p}{(}\PY{n}{time\PYZus{}elapsed}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)} \PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ms}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             
+             \PY{n}{display\PYZus{}confusion\PYZus{}matrix}\PY{p}{(}\PY{n}{target\PYZus{}test}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{predicted\PYZus{}results}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{)}
+             \PY{n}{cm} \PY{o}{=} \PY{n}{confusion\PYZus{}matrix}\PY{p}{(}\PY{n}{target\PYZus{}test}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{predicted\PYZus{}results}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{)}
+             \PY{n}{confusion\PYZus{}matrix\PYZus{}list}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{cm}\PY{p}{)}
+             
+             \PY{n}{print\PYZus{}bold}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Classification Report}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{classification\PYZus{}report}\PY{p}{(}\PY{n}{target\PYZus{}test}\PY{p}{,} \PY{n}{predicted\PYZus{}results}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \textbf{Decision Tree}
+
+    
+    \textbf{Accuracy Score}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.562888137725
+
+
+    \end{Verbatim}
+
+    \textbf{Time taken}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.286 ms
+
+    \end{Verbatim}
+
+    \textbf{Confusion Matrix}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Predicted      0     1
+Actual                
+0          10656  3183
+1           7938  3665
+
+    \end{Verbatim}
+
+    \textbf{Classification Report}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+             precision    recall  f1-score   support
+
+          0       0.57      0.77      0.66     13839
+          1       0.54      0.32      0.40     11603
+
+avg / total       0.56      0.56      0.54     25442
+
+
+    \end{Verbatim}
+
+    \textbf{Logistic Regression}
+
+    
+    \textbf{Accuracy Score}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.5663469853
+
+
+    \end{Verbatim}
+
+    \textbf{Time taken}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+2.076 ms
+
+    \end{Verbatim}
+
+    \textbf{Confusion Matrix}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Predicted     0     1
+Actual               
+0          9815  4024
+1          7009  4594
+
+    \end{Verbatim}
+
+    \textbf{Classification Report}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+             precision    recall  f1-score   support
+
+          0       0.58      0.71      0.64     13839
+          1       0.53      0.40      0.45     11603
+
+avg / total       0.56      0.57      0.56     25442
+
+
+    \end{Verbatim}
+
+    \textbf{Random Forest}
+
+    
+    \textbf{Accuracy Score}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.546537221917
+
+
+    \end{Verbatim}
+
+    \textbf{Time taken}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+2.023 ms
+
+    \end{Verbatim}
+
+    \textbf{Confusion Matrix}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Predicted     0     1
+Actual               
+0          9424  4415
+1          7122  4481
+
+    \end{Verbatim}
+
+    \textbf{Classification Report}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+             precision    recall  f1-score   support
+
+          0       0.57      0.68      0.62     13839
+          1       0.50      0.39      0.44     11603
+
+avg / total       0.54      0.55      0.54     25442
+
+
+    \end{Verbatim}
+
+    \textbf{Naive Bayes}
+
+    
+    \textbf{Accuracy Score}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.486596965647
+
+
+    \end{Verbatim}
+
+    \textbf{Time taken}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.372 ms
+
+    \end{Verbatim}
+
+    \textbf{Confusion Matrix}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Predicted     0      1
+Actual                
+0          1511  12328
+1           734  10869
+
+    \end{Verbatim}
+
+    \textbf{Classification Report}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+             precision    recall  f1-score   support
+
+          0       0.67      0.11      0.19     13839
+          1       0.47      0.94      0.62     11603
+
+avg / total       0.58      0.49      0.39     25442
+
+
+    \end{Verbatim}
+
+    \textbf{Neural Network}
+
+    
+    \textbf{Accuracy Score}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.547519849068
+
+
+    \end{Verbatim}
+
+    \textbf{Time taken}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+5.012 ms
+
+    \end{Verbatim}
+
+    \textbf{Confusion Matrix}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Predicted     0     1
+Actual               
+0          6148  7691
+1          3821  7782
+
+    \end{Verbatim}
+
+    \textbf{Classification Report}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+             precision    recall  f1-score   support
+
+          0       0.62      0.44      0.52     13839
+          1       0.50      0.67      0.57     11603
+
+avg / total       0.56      0.55      0.54     25442
+
+
+    \end{Verbatim}
+
+    \hypertarget{analysis}{%
+\subsubsection{Analysis}\label{analysis}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}97}]:} \PY{n}{plot\PYZus{}roc\PYZus{}curve}\PY{p}{(}\PY{n}{confusion\PYZus{}matrix\PYZus{}list}\PY{p}{,} \PY{n}{models}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{False Positive Rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{True Positive Rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Decision Tree TPR:0.315866586228 FPR:0.230002167787
+Logistic Regression TPR:0.395932086529 FPR:0.290772454657
+Random Forest TPR:0.38619322589 FPR:0.319025941181
+Naive Bayes TPR:0.936740498147 FPR:0.890815810391
+Neural Network TPR:0.670688615013 FPR:0.555748247706
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
