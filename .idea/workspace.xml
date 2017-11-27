@@ -2,9 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="192a5cbe-9d92-4859-b006-c9a3ceb49e46" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hospital Dataset Analysis.ipynb" afterPath="$PROJECT_DIR$/Hospital Dataset Analysis.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PIMA Dataset Analysis.ipynb" afterPath="$PROJECT_DIR$/PIMA Dataset Analysis.ipynb" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/.idea/Esri Project.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/flask_app.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/readme.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.idea/scripts.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/MNIST_CNN-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/arcgis_bounding_box_predictor-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/arcgis_map_predictor-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/arcgis_mapless_predictor-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/binary_classifier_model_trainer-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/boston_housing-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/building_detector_cnn-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/building_detector_cnn_multi_label-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/building_detector_cnn_single_label-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/image slicer_module-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/imdb dataset-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/model_tester_module-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/multi_classifer_model_trainer-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/renaming_module-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/tiff_to_jpg_converter_module-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/.ipynb_checkpoints/utilities-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/arcgis_bounding_box_predictor.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/arcgis_map_predictor.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/backup/.ipynb_checkpoints/trainer_backup_code-checkpoint.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/backup/MNIST_CNN.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/backup/arcgis_mapless_predictor.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/backup/boston_housing.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/backup/building_detector_cnn.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/backup/building_detector_cnn_multi_label.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/backup/building_detector_cnn_single_label.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/backup/imdb dataset.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/backup/trainer_backup_code.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/binary_classifier_model_trainer.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/utils/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/utils/file_utils.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/utils/image slicer_module.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/utils/renaming_module.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/utils/single_image_predictor.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/scripts/utils/tiff_to_jpg_converter_module.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ArcGIS-Map-Predictor-master/~$readme.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,33 +61,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="image_splitter.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dataset/image_splitter.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trainLabels.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataset/trainLabels.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239338">
-              <caret line="16031" column="10" lean-forward="false" selection-start-line="16031" selection-start-column="2" selection-end-line="16031" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -119,24 +143,6 @@
             <path>
               <item name="diabetes-ml-study" type="b2602c69:ProjectViewProjectNode" />
               <item name="diabetes-ml-study" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="diabetes-ml-study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="diabetes-ml-study" type="462c0819:PsiDirectoryNode" />
-              <item name="dataset" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="diabetes-ml-study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="diabetes-ml-study" type="462c0819:PsiDirectoryNode" />
-              <item name="dataset" type="462c0819:PsiDirectoryNode" />
-              <item name="eye data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="diabetes-ml-study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="diabetes-ml-study" type="462c0819:PsiDirectoryNode" />
-              <item name="dataset" type="462c0819:PsiDirectoryNode" />
-              <item name="eye data" type="462c0819:PsiDirectoryNode" />
-              <item name="train" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -285,21 +291,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/image_splitter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataset/image_splitter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
